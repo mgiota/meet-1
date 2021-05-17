@@ -22,19 +22,18 @@
     <main id="container">
         <h1>OAuth2 Test</h1>
 
+        <!-- STEP 1 -->
 
         <h4>STEP 1: Get OAuth URL</h4>
-
         <p>Click the button below to get the OAuth URL.</p>
         <button id="getCode">Get OAuth URL</button>
         <p id="result"></p>
 
         <a id="authURL" href target="_blank">Click to authorize</a>
 
-
+        <!-- STEP 2 -->
 
         <h4>STEP 2: get code and exchange it for access token</h4>
-
         <p>After being redirected back to the Meet App on github, copy the code from the URI!</p>
         <br>
         <label>code input
@@ -43,20 +42,18 @@
         <button id="getToken">Get Token</button>
         <p id="accessToken"></p>
 
-
+        <!-- STEP 3 -->
 
         <h4>STEP 3: Get calendar events using access token</h4>
-
         <button id="getEvents">Get Events</button>
         <p id="events"></p>
+
     </main>
 
 
 
     <script type="text/javascript">
-
-
-
+        // STEP 1 
         const getCodeElement = document.getElementById("getCode");
         const resultElement = document.getElementById("result");
         const resultLink = document.getElementById("authURL");
@@ -76,7 +73,7 @@
         };
 
 
-
+        // STEP 2 
         const codeValue = document.getElementById("code");
         const getAccessToken = document.getElementById("getToken");
         const accessTokenElement = document.getElementById("accessToken");
@@ -98,7 +95,7 @@
         };
 
 
-
+        // STEP 3
         const getEvents = document.getElementById("getEvents");
         const events = document.getElementById("events");
         const getCalendarEvents = "https://szno1iumgi.execute-api.eu-central-1.amazonaws.com/dev/api/get-events";
@@ -110,9 +107,9 @@
                 .then(function (response) {
                     return response.json();
                 })
-                .then(function (json) {
-                    events.innerText = JSON.stringify(json, null, 2);
-                });
+            then(function (json) {
+                events.innerText = JSON.stringify(json, null, 2);
+            });
         };
 
 
